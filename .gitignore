@@ -1,6 +1,5 @@
 gettingstarted/static/foundationapp/.sass-cache/
 gettingstarted/static/foundationapp/.sass-cache/*
-gettingstarted/settings.py
 venv
 *.pyc
 staticfiles
