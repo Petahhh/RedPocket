@@ -4,11 +4,15 @@ app.controller('MainController', function($scope, $http) {
 
   var main = this;
 
+  $scope.show = false;
+
   main.init = function () {
     $http.get('init/').then(
       function (response) {
         main.goals = JSON.parse(response.data.data.goals);
-        main.chequing = response.data.data.chequing;
+        main.chequing_balance = response.data.data.balance;
+        main.pseudo_balance = response.data.data.balance;
+        main.updatePseudoBalance();
       }
     );
   };
@@ -22,6 +26,8 @@ app.controller('MainController', function($scope, $http) {
     });
 
     main.save();
+    main.new_goal_name = "";
+    main.new_goal_goal = "";
   };
 
   main.save = function() {
@@ -29,9 +35,6 @@ app.controller('MainController', function($scope, $http) {
       method: "POST",
       url: "save",
       contentType: 'application/json; charset=utf-8',
-      // data: {
-      //   goals: JSON.stringify(main.goals),
-      // }
       data: {"goals": main.goals},
     }).success(function (data) {
       console.log("success");
@@ -58,12 +61,20 @@ app.controller('MainController', function($scope, $http) {
       console.log("error");
       console.log(data);
     });
+  };
 
-  }
-})
+  main.addToGoal = function(goal) {
+    goal.balance += goal.addition;
+    goal.addition = 0;
+    main.save();
+  };
 
+  main.updatePseudoBalance = function () {
+    var pocketed = 0;
+    for (var i = 0; i < main.goals.length; i++) {
+      pocketed += main.goals[i].balance;
+    }
+    main.pseudo_balance = main.chequing_balance - pocketed;
 
-  /* Added in for CSRF support. */
-  .config(function ($httpProvider) {
-    $httpProvider.defaults.headers.post['X-CSRFToken'] = $('input[name=csrfmiddlewaretoken]').val();
-  });
+  };
+});

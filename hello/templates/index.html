@@ -4,13 +4,24 @@
 {% block content %}
 <div id="redpocket" ng-app="redpocket" class="row">
   <div class="wrapper columns large-12" ng-controller="MainController as main">
-    ${{chequing.balance |floatformat:2}}
-
-    goals:
+    {% verbatim %}
+      <div ng-show="show" class="balance">
+        a${{main.chequing_balance}}
+      </div>
+      <div ng-show="show==false" class="balance pseudo-balance">
+        b${{main.pseudo_balance}}
+      </div>
+      <div class="show" ng-mouseenter="show=true" ng-mouseleave="show=false">show</div>
+    {% endverbatim %}
+    <div ng-show="main.pseudo_balance < 0" class="negative-balance">
+      You've started to dig into your goals =(
+    </div>
     <ul>
       <li ng-repeat="goal in main.goals track by $index">
         {% verbatim %}
           {{goal.balance}} : {{goal.goal}}: {{goal.name}}<button ng-click="main.deleteGoal(goal.name, $index)">x</button>
+          <button ng-click="main.addToGoal(goal)"></button>
+          <input type="number" ng-model="goal.addition"/>
         {% endverbatim %}
       </li>
       <li>

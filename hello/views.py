@@ -17,7 +17,7 @@ def index(request):
     chequing = ChequingAccount.objects.filter(name="chequings")[0]
 
     # return HttpResponse('Hello from Python!')
-    return render(request, 'index.html', 
+    return render(request, 'index.html',
         {
             "chequing": chequing,
             "newgoal": NewGoal()
@@ -74,7 +74,7 @@ def init(request):
     return JsonResponse({
         "data": {
             "goals": json.dumps(goal_fields_to_json(goals)),
-            "chequing": serializers.serialize('json', [ chequing, ]),
+            "balance": chequing.balance,
         }
     })
 
@@ -89,11 +89,10 @@ def save(request):
             new_goal = Goals(name=goal["name"])
             new_goal.save()
         else:
-            get_goal.balance = goal["balance"]
-
+            get_goal[0].balance = goal["balance"]
+            get_goal[0].save()
 
     goals = Goals.objects.all()
-    print(goals)
 
     return JsonResponse({
         "success": True
