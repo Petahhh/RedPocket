@@ -1,6 +1,26 @@
 $scotia: #ED1B2D;
 
+body {
+  background: $scotia;
+  color: white;
+  font-weight:100;
+  letter-spacing: 4px;
+}
 #redpocket {
+  .wrapper {
+    margin-top:30%;
+    text-align: center;
+    .balance {
+      font-size: 4em;
+      font-weight: bold;
+      letter-spacing: 16px;
+    }
+    .actual-balance {
+
+      background: white;
+      color: $scotia;
+    }
+  }
   .submit-button-hide {
     display: none;
   }

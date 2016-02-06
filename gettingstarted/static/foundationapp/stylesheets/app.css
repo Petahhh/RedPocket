@@ -9735,7 +9735,31 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 4, ../scss/_main.scss */
+/* line 3, ../scss/_main.scss */
+body {
+  background: #ED1B2D;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 4px;
+}
+
+/* line 10, ../scss/_main.scss */
+#redpocket .wrapper {
+  margin-top: 30%;
+  text-align: center;
+}
+/* line 13, ../scss/_main.scss */
+#redpocket .wrapper .balance {
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: 16px;
+}
+/* line 18, ../scss/_main.scss */
+#redpocket .wrapper .actual-balance {
+  background: white;
+  color: #ED1B2D;
+}
+/* line 24, ../scss/_main.scss */
 #redpocket .submit-button-hide {
   display: none;
 }

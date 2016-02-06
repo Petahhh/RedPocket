@@ -67,6 +67,7 @@ app.controller('MainController', function($scope, $http) {
     goal.balance += goal.addition;
     goal.addition = 0;
     main.save();
+    main.updatePseudoBalance();
   };
 
   main.updatePseudoBalance = function () {
