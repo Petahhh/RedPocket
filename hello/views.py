@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting, Greetings
+from .models import Greeting, ChequingAccount
 
 # Create your views here.
 def index(request):
@@ -16,11 +16,16 @@ def db(request):
 
     greetings = Greeting.objects.all()
 
-    greeting2 = Greetings()
-    greeting2.save()
 
-    greetings2 = Greetings.objects.all()
+    return render(request, 'db.html', {'greetings': greetings})
 
-    return render(request, 'db.html', {'greetings': greetings,
-      'greetings2': greetings2})
+def create_chequing(request):
+
+    chequing = ChequingAccount()
+    chequing.save()
+
+    accounts = ChequingAccount.objects.all()
+
+
+    return render(request, 'accounts.html', {'accounts': accounts})
 

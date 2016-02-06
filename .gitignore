@@ -1,3 +1,4 @@
+gettingstarted/settings.py
 venv
 *.pyc
 staticfiles

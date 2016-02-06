@@ -5,5 +5,5 @@ class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
 
 
-class Greetings(models.Model):
-    when = models.DateTimeField('date created', auto_now_add=True)
+class ChequingAccount(models.Model):
+    balance = models.FloatField(default=0)
