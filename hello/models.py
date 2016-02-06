@@ -8,3 +8,8 @@ class Greeting(models.Model):
 class ChequingAccount(models.Model):
     balance = models.FloatField(default=0)
     name = models.CharField(max_length=60, default="main")
+
+class Goals(models.Model):
+    balance = models.FloatField(default=0)
+    goal = models.FloatField(default=0)
+    name = models.CharField(max_length=60, default="main")
