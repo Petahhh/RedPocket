@@ -2,9 +2,30 @@
 {% load staticfiles %}
 
 {% block content %}
+<div id="redpocket" ng-app="redpocket" class="row">
+  <div class="wrapper columns large-12" ng-controller="MainController as main">
+    ${{chequing.balance |floatformat:2}}
 
-{{chequing.balance}}
-
-<button>new goal</button>
-
+    goals:
+    <ul>
+      <li ng-repeat="goal in main.goals track by $index">
+        {% verbatim %}
+          {{goal.balance}} : {{goal.goal}}: {{goal.name}}<button ng-click="main.deleteGoal(goal.name, $index)">x</button>
+        {% endverbatim %}
+      </li>
+      <li>
+        <div class="new-goal">
+          <div class="new-goal-form">
+            <form ng-submit="main.newGoal()">
+              {% csrf_token %}
+              <input id="id_name" ng-model="main.new_goal_name" maxlength="60" name="name" type="text">
+              <input id="id_goal" ng-model="main.new_goal_goal" name="goal" step="any" type="number">
+              <input class="submit-button-hide" type="submit" value="add">
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 {% endblock %}
