@@ -7,3 +7,4 @@ class Greeting(models.Model):
 
 class ChequingAccount(models.Model):
     balance = models.FloatField(default=0)
+    name = models.CharField(max_length=60)

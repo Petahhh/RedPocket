@@ -21,7 +21,7 @@ def db(request):
 
 def create_chequing(request):
 
-    chequing = ChequingAccount()
+    chequing = ChequingAccount(name="chequings")
     chequing.save()
 
     accounts = ChequingAccount.objects.all()
