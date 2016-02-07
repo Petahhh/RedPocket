@@ -2,6 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
+
+<div id="screensaver">
+  <div id="parent">
+      <img src="{{STATIC_URL}}/static/images/logo.jpg" />
+  </div>
+</div>
 <div id="redpocket" ng-app="redpocket" class="row">
   <div class="wrapper columns large-12" ng-controller="MainController as main">
     {% verbatim %}
