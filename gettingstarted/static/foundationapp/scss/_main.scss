@@ -1,17 +1,39 @@
 $scotia: #ED1B2D;
+$scotia-light: #efa2a9;
 
 body {
   background: $scotia;
   color: white;
   font-weight:100;
   letter-spacing: 4px;
+  font-size: 12px;
+  ul {
+    font-size: 12px;
+    list-style-type: none;
+  }
 }
 #redpocket {
   .wrapper {
     margin-top:30%;
     text-align: center;
+
+    input[type="text"] {
+      background-color: rgba(255, 255, 255, 0);
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid $scotia-light;
+      box-shadow: none;
+      color: white;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: 100;
+      &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+          color:    $scotia-light;
+      }
+    }
     .balance {
-      font-size: 4em;
+      font-size: 3em;
       font-weight: bold;
       letter-spacing: 16px;
     }
@@ -19,6 +41,27 @@ body {
 
       background: white;
       color: $scotia;
+    }
+    .pseudo-balance {
+
+      border-bottom: 1px solid #efa2a9;
+      padding-bottom: 0.2em;
+    }
+
+    .goal-wrapper {
+      margin-top: 5em;
+      span.delete-goal {
+        float: right;
+      }
+      li {
+        svg {
+          width: 150px;
+          height: 100px;
+        }
+        .add {
+          font-size: 4em;
+        }
+      }
     }
   }
   .submit-button-hide {

@@ -1,3 +1,4 @@
+$(document).foundation();
 var app = angular.module('redpocket', []);
 
 app.controller('MainController', function($scope, $http) {
@@ -5,6 +6,7 @@ app.controller('MainController', function($scope, $http) {
   var main = this;
 
   $scope.show = false;
+  $scope.show_new_goal = false;
 
   main.init = function () {
     $http.get('init/').then(
@@ -25,6 +27,7 @@ app.controller('MainController', function($scope, $http) {
       goal: main.new_goal_goal,
     });
 
+    console.log(main.new_goal_goal);
     main.save();
     main.new_goal_name = "";
     main.new_goal_goal = "";

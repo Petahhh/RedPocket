@@ -9735,31 +9735,77 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 3, ../scss/_main.scss */
+/* line 4, ../scss/_main.scss */
 body {
   background: #ED1B2D;
   color: white;
   font-weight: 100;
   letter-spacing: 4px;
+  font-size: 12px;
+}
+/* line 10, ../scss/_main.scss */
+body ul {
+  font-size: 12px;
+  list-style-type: none;
 }
 
-/* line 10, ../scss/_main.scss */
+/* line 16, ../scss/_main.scss */
 #redpocket .wrapper {
   margin-top: 30%;
   text-align: center;
 }
-/* line 13, ../scss/_main.scss */
+/* line 20, ../scss/_main.scss */
+#redpocket .wrapper input[type="text"] {
+  background-color: rgba(255, 255, 255, 0);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #efa2a9;
+  box-shadow: none;
+  color: white;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 100;
+}
+/* line 31, ../scss/_main.scss */
+#redpocket .wrapper input[type="text"]::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #efa2a9;
+}
+/* line 35, ../scss/_main.scss */
 #redpocket .wrapper .balance {
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold;
   letter-spacing: 16px;
 }
-/* line 18, ../scss/_main.scss */
+/* line 40, ../scss/_main.scss */
 #redpocket .wrapper .actual-balance {
   background: white;
   color: #ED1B2D;
 }
-/* line 24, ../scss/_main.scss */
+/* line 45, ../scss/_main.scss */
+#redpocket .wrapper .pseudo-balance {
+  border-bottom: 1px solid #efa2a9;
+  padding-bottom: 0.2em;
+}
+/* line 51, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper {
+  margin-top: 5em;
+}
+/* line 53, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper span.delete-goal {
+  float: right;
+}
+/* line 57, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper li svg {
+  width: 150px;
+  height: 100px;
+}
+/* line 61, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper li .add {
+  font-size: 4em;
+}
+/* line 67, ../scss/_main.scss */
 #redpocket .submit-button-hide {
   display: none;
 }

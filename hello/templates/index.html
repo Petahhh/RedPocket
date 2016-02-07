@@ -9,7 +9,7 @@
         <div ng-show="show" class="balance actual-balance">
           ${{main.chequing_balance | number:2}}
         </div>
-        <span ng-show="show==false" class="balance pseudo-balance">
+        <span ng-show="!show" class="balance pseudo-balance">
           ${{main.pseudo_balance | number:2}}
         </span>
       </div>
@@ -17,28 +17,41 @@
     <div ng-show="main.pseudo_balance < 0" class="negative-balance">
       You've started to dig into your goals =(
     </div>
-    <ul>
-      <li ng-repeat="goal in main.goals track by $index">
-        {% verbatim %}
-          {{goal.balance}} : {{goal.goal}}: {{goal.name}}<button ng-click="main.deleteGoal(goal.name, $index)">x</button>
+    <div class="goal-wrapper">
+      <ul class="small-block-grid-3">
+        <li ng-repeat="goal in main.goals track by $index">
+          <span ng-click="main.deleteGoal(goal.name, $index)" class="delete-goal">x</span>
+          <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+          </svg>
+            {% verbatim %}
+              ${{goal.balance | number:2}} {{goal.name}}
+            {% endverbatim %}
           <form ng-submit="main.addToGoal(goal)">
-            <input type="number" ng-model="goal.addition"/>
+            <input type="text" ng-model="goal.addition"/>
           </form>
-        {% endverbatim %}
-      </li>
-      <li>
-        <div class="new-goal">
-          <div class="new-goal-form">
-            <form ng-submit="main.newGoal()">
-              {% csrf_token %}
-              <input id="id_name" ng-model="main.new_goal_name" maxlength="60" name="name" type="text">
-              <input id="id_goal" ng-model="main.new_goal_goal" name="goal" step="any" type="number">
-              <input class="submit-button-hide" type="submit" value="add">
-            </form>
-          </div>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="columns small-centered small-5">
+          <ul>
+            <li ng-mouseenter="show_new_goal=true" ng-mouseleave="show_new_goal=false">
+              <div ng-show="show_new_goal" class="new-goal-form">
+                <form ng-submit="main.newGoal()">
+                  {% csrf_token %}
+                  <input id="id_name" placeholder="new goal" ng-model="main.new_goal_name" maxlength="60" name="name" type="text">
+                  <input id="id_goal" placeholder="total" ng-model="main.new_goal_goal" name="goal" step="any" type="text">
+                  <input class="submit-button-hide" type="submit" value="add">
+                </form>
+              </div>
+              <div ng-show="!show_new_goal">
+                <span class="add">+</span>
+              </div>
+            </li>
+          </ul>
         </div>
-      </li>
-    </ul>
+    </div>
   </div>
 </div>
 {% endblock %}
