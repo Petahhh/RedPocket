@@ -66,11 +66,12 @@ app.controller('MainController', function($scope, $http) {
     });
   };
 
-  main.addToGoal = function(goal) {
+  main.addToGoal = function(goal, $index) {
     goal.balance += parseInt(goal.addition);
     goal.addition = "";
     main.save();
     main.updatePseudoBalance();
+    main.updateProgressBar($index);
   };
 
   main.updatePseudoBalance = function () {
@@ -81,4 +82,18 @@ app.controller('MainController', function($scope, $http) {
     main.pseudo_balance = main.chequing_balance - pocketed;
 
   };
+
+  main.updateProgressBar = function ($index) {
+    var getPercent = ( main.goals[$index].balance / main.goals[$index].goal);
+    var getProgressWrapWidth = $('.progress-wrap-' + $index).width();
+    var progressTotal = getPercent * getProgressWrapWidth;
+    var animationLength = 1500;
+    
+    // on page load, animate percentage bar to data percentage length
+    // .stop() used to prevent animation queueing
+    $('.progress-bar').stop().animate({
+        left: progressTotal
+    }, animationLength);
+  };
 });
+

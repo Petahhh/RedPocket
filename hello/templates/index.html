@@ -20,7 +20,7 @@
     <div class="goal-wrapper">
       <ul class="small-block-grid-3">
         <li ng-repeat="goal in main.goals track by $index">
-          <div ng-mouseenter="hovered_goal=$index" ng-mouseleave="hovered_goal=-1">
+          <div ng-mouseenter="hovered_goal=$index; main.updateProgressBar($index)" ng-mouseleave="hovered_goal=-1">
             <div ng-show="hovered_goal==-1">
               <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0 0h24v24H0z" fill="none"/>
@@ -29,13 +29,18 @@
             </div>
             <div class="under-pocket" ng-show="hovered_goal==$index">
               <span ng-click="main.deleteGoal(goal.name, $index)" class="delete-goal">x</span>
-              <form ng-submit="main.addToGoal(goal)">
+              <form class="add-form" ng-submit="main.addToGoal(goal, $index)">
                 <span class="pocket-balance">
                   {% verbatim %}
                     ${{goal.balance | number:2}}
                   {% endverbatim %}
                 </span>
-                <input type="text" ng-model="goal.addition" placeholder="add"/>
+                <input class="add-input" type="text" ng-model="goal.addition" placeholder="add"/>
+                {% verbatim %}
+                  <div class="progress-wrap progress-wrap-{{$index}} progress">
+                    <div class="progress-bar progress"></div>
+                  </div>
+                {% endverbatim %}
               </form>
             </div>
             {% verbatim %}

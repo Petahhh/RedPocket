@@ -9751,7 +9751,7 @@ body ul {
 
 /* line 16, ../scss/_main.scss */
 #redpocket .wrapper {
-  margin-top: 30%;
+  margin-top: 20%;
   text-align: center;
 }
 /* line 20, ../scss/_main.scss */
@@ -9810,11 +9810,47 @@ body ul {
 #redpocket .wrapper .goal-wrapper li .under-pocket {
   height: 106px;
 }
-/* line 69, ../scss/_main.scss */
+/* line 68, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper li form.add-form {
+  padding-top: 2em;
+}
+/* line 70, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper li form.add-form span.pocket-balance {
+  font-size: 2em;
+}
+/* line 73, ../scss/_main.scss */
+#redpocket .wrapper .goal-wrapper li form.add-form input.add-input {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+/* line 79, ../scss/_main.scss */
 #redpocket .wrapper .goal-wrapper ul.add-ul {
   margin-top: 5em;
 }
-/* line 74, ../scss/_main.scss */
+/* line 84, ../scss/_main.scss */
 #redpocket .submit-button-hide {
   display: none;
+}
+
+/* line 91, ../scss/_main.scss */
+.progress {
+  width: 100%;
+  height: 5px;
+  padding: 0 0 0 0;
+  border: none;
+}
+
+/* line 98, ../scss/_main.scss */
+.progress-wrap {
+  background-color: white;
+  margin: 0 0;
+  overflow: hidden;
+  position: relative;
+}
+/* line 103, ../scss/_main.scss */
+.progress-wrap .progress-bar {
+  background-color: #efa2a9;
+  left: 0;
+  position: absolute;
+  top: 0;
 }

@@ -86,7 +86,7 @@ def save(request):
     for goal in data["goals"]:
         get_goal = Goals.objects.filter(name=goal["name"])
         if len(get_goal) == 0:
-            new_goal = Goals(name=goal["name"])
+            new_goal = Goals(name=goal["name"], goal=goal["goal"])
             new_goal.save()
         else:
             get_goal[0].balance = goal["balance"]
