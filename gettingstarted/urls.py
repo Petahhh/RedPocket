@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^create_account', hello.views.create_chequing, name='create_chequing'),
+    url(r'^delete_all', hello.views.delete_all, name='delete_all'),
     url(r'^pay_day', hello.views.pay_day, name='pay_day'),
     url(r'^shopping', hello.views.shopping, name='shopping'),
     url(r'^init', hello.views.init, name='init'),

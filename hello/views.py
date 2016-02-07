@@ -116,3 +116,14 @@ def goal_fields_to_json(goals):
             "name": goal.name,
         } for goal in goals
     ]
+
+def delete_all(request):
+
+    accounts = ChequingAccount.objects.all()
+    for account in accounts:
+        account.delete()
+        
+    accounts = ChequingAccount.objects.all()
+
+
+    return render(request, 'accounts.html', {'accounts': accounts})
