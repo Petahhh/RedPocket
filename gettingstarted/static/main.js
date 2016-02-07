@@ -91,7 +91,7 @@ app.controller('MainController', function($scope, $http) {
     
     // on page load, animate percentage bar to data percentage length
     // .stop() used to prevent animation queueing
-    $('.progress-bar').stop().animate({
+    $('.progress-bar-' + $index).stop().animate({
         left: progressTotal
     }, animationLength);
   };
