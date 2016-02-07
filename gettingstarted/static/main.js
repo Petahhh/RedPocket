@@ -7,6 +7,7 @@ app.controller('MainController', function($scope, $http) {
 
   $scope.show = false;
   $scope.show_new_goal = false;
+  $scope.hovered_goal = -1;
 
   main.init = function () {
     $http.get('init/').then(
@@ -27,7 +28,6 @@ app.controller('MainController', function($scope, $http) {
       goal: main.new_goal_goal,
     });
 
-    console.log(main.new_goal_goal);
     main.save();
     main.new_goal_name = "";
     main.new_goal_goal = "";
@@ -67,8 +67,8 @@ app.controller('MainController', function($scope, $http) {
   };
 
   main.addToGoal = function(goal) {
-    goal.balance += goal.addition;
-    goal.addition = 0;
+    goal.balance += parseInt(goal.addition);
+    goal.addition = "";
     main.save();
     main.updatePseudoBalance();
   };

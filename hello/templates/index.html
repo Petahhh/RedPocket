@@ -20,22 +20,33 @@
     <div class="goal-wrapper">
       <ul class="small-block-grid-3">
         <li ng-repeat="goal in main.goals track by $index">
-          <span ng-click="main.deleteGoal(goal.name, $index)" class="delete-goal">x</span>
-          <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
-          </svg>
+          <div ng-mouseenter="hovered_goal=$index" ng-mouseleave="hovered_goal=-1">
+            <div ng-show="hovered_goal==-1">
+              <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+              </svg>
+            </div>
+            <div class="under-pocket" ng-show="hovered_goal==$index">
+              <span ng-click="main.deleteGoal(goal.name, $index)" class="delete-goal">x</span>
+              <form ng-submit="main.addToGoal(goal)">
+                <span class="pocket-balance">
+                  {% verbatim %}
+                    ${{goal.balance | number:2}}
+                  {% endverbatim %}
+                </span>
+                <input type="text" ng-model="goal.addition" placeholder="add"/>
+              </form>
+            </div>
             {% verbatim %}
-              ${{goal.balance | number:2}} {{goal.name}}
+              {{goal.name}}
             {% endverbatim %}
-          <form ng-submit="main.addToGoal(goal)">
-            <input type="text" ng-model="goal.addition"/>
-          </form>
+          </div>
         </li>
       </ul>
       <div class="row">
         <div class="columns small-centered small-5">
-          <ul>
+          <ul class="add-ul">
             <li ng-mouseenter="show_new_goal=true" ng-mouseleave="show_new_goal=false">
               <div ng-show="show_new_goal" class="new-goal-form">
                 <form ng-submit="main.newGoal()">
