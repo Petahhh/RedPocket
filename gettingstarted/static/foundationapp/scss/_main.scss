@@ -1,5 +1,6 @@
 $scotia: #ED1B2D;
 $scotia-light: #efa2a9;
+$scotia-mid: #ed6571;
 
 body {
   background: $scotia;
@@ -101,7 +102,7 @@ body {
   overflow: hidden;
   position: relative;
   .progress-bar {
-    background-color: $scotia-light;
+    background-color: $scotia-mid;
     left: 0;
     position: absolute;
     top: 0;
