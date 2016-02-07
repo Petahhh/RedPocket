@@ -9737,8 +9737,8 @@ th.hide-for-touch {
 }
 /* line 5, ../scss/_main.scss */
 body {
-  background: #ED1B2D;
-  color: white;
+  background: #FFFFFF;
+  color: #ED1B2D;
   font-weight: 500;
   letter-spacing: 4px;
   font-size: 16px;
@@ -9762,7 +9762,7 @@ body ul {
   border-left: none;
   border-bottom: 1px solid #efa2a9;
   box-shadow: none;
-  color: white;
+  color: #ED1B2D;
   letter-spacing: 4px;
   font-size: 16px;
   font-weight: 500;
@@ -9781,8 +9781,8 @@ body ul {
 }
 /* line 42, ../scss/_main.scss */
 #redpocket .wrapper .actual-balance {
-  background: white;
-  color: #ED1B2D;
+  background: #ED1B2D;
+  color: #FFFFFF;
 }
 /* line 47, ../scss/_main.scss */
 #redpocket .wrapper .pseudo-balance {
@@ -9843,7 +9843,7 @@ body ul {
 
 /* line 100, ../scss/_main.scss */
 .progress-wrap {
-  background-color: white;
+  background-color: #ED1B2D;
   margin: 0 0;
   overflow: hidden;
   position: relative;

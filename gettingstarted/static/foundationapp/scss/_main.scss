@@ -3,8 +3,8 @@ $scotia-light: #efa2a9;
 $scotia-mid: #ed6571;
 
 body {
-  background: $scotia;
-  color: white;
+  background: $white; 
+   color: $scotia;
   font-weight: 500;
   letter-spacing: 4px;
   font-size: 16px;
@@ -25,7 +25,7 @@ body {
       border-left: none;
       border-bottom: 1px solid $scotia-light;
       box-shadow: none;
-      color: white;
+      color: $scotia;
       letter-spacing: 4px;
       font-size: 16px;
       font-weight: 500;
@@ -41,9 +41,9 @@ body {
     }
     .actual-balance {
 
-      background: white;
-      color: $scotia;
-    }
+      background: $scotia;
+      color: $white; 
+         }
     .pseudo-balance {
 
       border-bottom: 1px solid #efa2a9;
@@ -98,7 +98,7 @@ body {
 
 }
 .progress-wrap {
-  background-color: white;
+  background-color: $scotia;
   margin: 0 0;
   overflow: hidden;
   position: relative;
