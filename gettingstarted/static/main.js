@@ -84,15 +84,17 @@ app.controller('MainController', function($scope, $http) {
   };
 
   main.updateProgressBar = function ($index) {
+    console.log("goal: " + main.goals[$index].goal)
     var getPercent = ( main.goals[$index].balance / main.goals[$index].goal);
     var getProgressWrapWidth = $('.progress-wrap-' + $index).width();
     var progressTotal = getPercent * getProgressWrapWidth;
-    var animationLength = 1500;
+    var animationLength = getPercent * 1500;
     
     // on page load, animate percentage bar to data percentage length
     // .stop() used to prevent animation queueing
     $('.progress-bar-' + $index).stop().animate({
-        left: progressTotal
+        left: progressTotal,
+        easing: "linear",
     }, animationLength);
   };
 });
