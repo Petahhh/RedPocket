@@ -145,7 +145,11 @@ function screensaver_animation(){
     }
 }
 
-
+$(document).ready(function () {
+  setTimeout(function() {
+    stop_screensaver();
+  }, 1000);
+});
 
 
 
